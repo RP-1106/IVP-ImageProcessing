@@ -1,0 +1,238 @@
+1. Go through LMS Lab Assignments
+    - Filters and Colour Correction : https://scikit-image.org/docs/stable/api/skimage.filters.html
+        - Smoothening
+            Gaussian Smoothing
+            Median Filtering
+            Mean Filtering
+            Bilateral Filtering
+
+        - Sharpening
+            Laplacian Sharpening
+            High-Pass Filtering
+            Gradient-Based Sharpening
+            Contrast Enhancement
+
+        - Contrast Correction
+            Histogram Equalization
+            Contrast Stretching
+            CLAHE (Contrast Limited Adaptive Histogram Equalization)
+            Gamma Correction
+            Non-Linear Contrast Enhancement
+
+        - Night Vision
+        - Blurring
+            - Gaussian Blur
+                    Use Gaussian blur for general-purpose smoothing and noise reduction in images while preserving edges and fine details.
+            - Motion Blur
+                    Use motion blur to simulate the effect of motion in images, such as moving objects or camera motion, to create dynamic or realistic effects.
+            - Defocus Blur
+                    Use defocus blur to simulate the out-of-focus regions in images, commonly used in photography to create depth-of-field effects and emphasize the subject.
+            - Haze
+
+        - Image negatives
+        - Shift Filters
+        - Box Filters
+
+    - Edge Detection
+        - LoG
+                LoG stands for Laplacian of Gaussian, and it is a popular image processing technique used for edge detection and feature extraction. It combines the Gaussian blur and Laplacian operator to enhance and detect edges in images.
+
+                When to use LoG:
+                    Edge Detection: LoG is primarily used for edge detection in images. It helps to identify the boundaries between different objects or regions in an image by highlighting areas of rapid intensity change.
+
+                    Feature Extraction: LoG can also be used for feature extraction in image processing tasks such as object recognition, image segmentation, and pattern recognition. The enhanced edges obtained from LoG can serve as important features for further analysis.
+
+                    Image Enhancement: In some cases, LoG can be used for image enhancement to sharpen the edges and improve the overall visual quality of the image.
+
+                    Noise Reduction: Although LoG is not primarily intended for noise reduction, the Gaussian blur step in the process helps to smooth out the image and reduce noise, leading to cleaner edge detection results.
+
+        - Laplacian
+                    Laplacian edge detection is a technique used in image processing to detect edges by computing the second derivative of the image intensity. It's based on the concept that edges in an image correspond to regions of rapid intensity change. The Laplacian operator highlights these regions by detecting zero-crossings, where the intensity changes sign, indicating the presence of an edge.
+
+                    When to use Laplacian edge detection:
+                        High-Contrast Edges: Laplacian edge detection is suitable for detecting high-contrast edges in images where the intensity changes sharply. It's effective at capturing abrupt transitions in intensity, such as object boundaries or text.
+
+                        Feature Extraction: In tasks requiring feature extraction, such as object recognition, image segmentation, or shape analysis, Laplacian edge detection can be used to extract relevant features from images. The detected edges serve as important cues for further analysis.
+
+                        Edge Localization: Unlike some other edge detection techniques, such as Sobel or Prewitt operators, Laplacian edge detection provides edge localization with sub-pixel accuracy. This makes it useful in applications where precise edge localization is important.
+
+                        Image Preprocessing: Laplacian edge detection can also be used as a preprocessing step for other image processing tasks, such as image sharpening, texture analysis, or image registration. By highlighting edges, it can facilitate subsequent processing steps and improve overall performance.
+
+        - DoG               
+                DoG stands for Difference of Gaussians, and it is a technique used in image processing for edge detection, feature extraction, and image enhancement. It is based on the principle of subtracting two Gaussian-blurred versions of an image to enhance and detect features such as edges and corners.
+
+                When to use Difference of Gaussians:
+                    Edge Detection: DoG is primarily used for edge detection in images. By subtracting two Gaussian-blurred versions of the image, it enhances edges and highlights regions of rapid intensity change. This makes it effective for detecting edges and boundaries between objects in images.
+
+                    Feature Extraction: DoG can also be used for feature extraction, such as detecting corners, blobs, or other salient features in images. The enhanced edges and features in the DoG image can serve as valuable cues for subsequent processing tasks, such as object recognition or image segmentation.
+
+                    Image Enhancement: In some cases, DoG can be used for image enhancement to sharpen edges and improve overall image quality. By emphasizing edges and features, it can make images appear clearer and more defined.
+
+                    Scale-Space Analysis: DoG is often used in scale-space analysis, where images are analyzed at multiple scales to detect features of different sizes. By varying the standard deviations of the Gaussian blur kernels, DoG can capture features at different scales, making it useful for multiscale analysis of images.
+
+        - HoG
+                HoG stands for Histogram of Oriented Gradients, and it's a feature descriptor used in image processing and computer vision for object detection and recognition tasks. HoG captures the distribution of gradient orientations in an image, which can be used to represent local image structures such as edges and textures.
+
+                When to use Histogram of Oriented Gradients (HoG):
+                    Object Detection: HoG is commonly used in object detection tasks to extract discriminative features from images. It's particularly effective for detecting objects with well-defined edges and textures, such as pedestrians, vehicles, or faces.
+
+                    Image Classification: HoG can also be used for image classification tasks, where the goal is to categorize images into different classes or categories. By capturing the distribution of local image structures, HoG descriptors can effectively represent the visual appearance of objects in images.
+
+                    Feature Matching: HoG descriptors can be used for feature matching and image retrieval tasks, where the goal is to find similar images in a database based on their visual content. HoG descriptors provide a compact and discriminative representation of image features, making them suitable for matching and retrieval applications.
+
+                    Scene Understanding: HoG descriptors can contribute to scene understanding tasks, such as scene classification or scene segmentation, by providing informative features about the local image structures present in different regions of the scene.
+
+
+        - SIFT
+                SIFT stands for Scale-Invariant Feature Transform, and it's a widely used technique in image processing and computer vision for detecting and describing key features in images. Developed by David Lowe, SIFT is robust to changes in scale, rotation, illumination, and viewpoint, making it suitable for a wide range of applications, including object recognition, image stitching, and 3D reconstruction.
+
+                When to use SIFT:
+
+                Object Recognition: SIFT is commonly used for object recognition tasks, where the goal is to identify objects in images despite changes in scale, rotation, and viewpoint. SIFT keypoints and descriptors provide robust and distinctive features that can be matched between images to recognize objects.
+
+                Image Stitching: SIFT is used in image stitching applications to align and merge multiple images into a panorama. SIFT keypoints are detected in overlapping regions of adjacent images, and their descriptors are matched to estimate the transformation needed to align the images.
+
+                3D Reconstruction: SIFT can be used for 3D reconstruction tasks, such as structure-from-motion and visual SLAM (Simultaneous Localization and Mapping). SIFT keypoints extracted from images captured from different viewpoints are used to estimate the 3D structure of scenes and objects.
+
+                Image Registration: SIFT is also used in medical imaging and remote sensing for image registration, where the goal is to align images acquired at different times or from different sensors. SIFT keypoints are matched between images to estimate the transformation needed to register them.
+
+        -------------------------------
+        NOTE:
+            Edge Detection:
+            For general edge detection tasks, where robustness to noise and various scales is required, Laplacian or LoG (Laplacian of Gaussian) filters are often preferred. They can detect edges at multiple scales and are less sensitive to noise compared to simple gradient-based methods.
+            If precise edge localization with sub-pixel accuracy is important, LoG may be preferred due to its scale-space analysis capabilities.
+
+            Feature Extraction:
+            For feature extraction tasks such as object recognition, image stitching, or 3D reconstruction, SIFT (Scale-Invariant Feature Transform) is a popular choice. SIFT provides highly distinctive and invariant descriptors for keypoints, making it robust to changes in scale, rotation, illumination, and viewpoint.
+            HoG (Histogram of Oriented Gradients) is also suitable for feature extraction, especially for detecting objects with well-defined edges and textures. It captures the distribution of gradient orientations in an image and is commonly used in object detection tasks.
+
+            Image Enhancement:
+            If the goal is to enhance edges and features in the image, DoG (Difference of Gaussians) can be effective. It subtracts two Gaussian-blurred versions of the image to emphasize edges and highlights regions of rapid intensity change.
+            Laplacian or LoG filters can also be used for image enhancement, especially for sharpening edges and improving overall image quality.
+
+            Object Detection:
+            For object detection tasks, where robustness to scale and orientation variations is crucial, SIFT or HoG are commonly used. SIFT provides invariant keypoints and descriptors, while HoG captures local image structures based on gradient orientations.
+
+            In summary:
+            Laplacian or LoG: Edge detection, image enhancement.
+            SIFT: Feature extraction, object recognition.
+            HoG: Feature extraction, object detection.
+            DoG: Edge detection, image enhancement.
+        ---------------------------------------------------------------
+
+    - Image Resizing
+            image = cv2.imread(r"image.jpg", 1)
+             
+            half = cv2.resize(image, (0, 0), fx = 0.1, fy = 0.1)
+            bigger = cv2.resize(image, (1050, 1610))
+            stretch_near = cv2.resize(image, (780, 540), interpolation = cv2.INTER_LINEAR)
+
+    - Image format conversion
+            def convert_format(inp, op, op_format):
+                og_image = Image.open(inp)
+                og_image.save(op, format=op_format)
+
+            convert_format('input_img.jpeg', 'output.png', 'PNG')
+            convert_format('input_img.jpeg', 'output.gif', 'GIF')
+
+    - Extraction of Colour bands from an image
+            def extract_color_bands(inp):
+                og_image  = Image.open(inp)
+                og_pixels = np.array(og_image)
+
+                blue_channel  = og_pixels[:, :, 0]
+                green_channel = og_pixels[:, :, 1]
+                red_channel   = og_pixels[:, :, 2]
+
+                return blue_channel, green_channel, red_channel
+
+            blue, green, red = extract_color_bands('input_img.jpeg')
+            print("Blue : \n",blue)
+            print()
+            print("Green : \n",green)
+            print()
+            print("Red : \n",red)
+
+    - Adding Noise to an image - Uniform, Gaussian, Salt and Pepper
+        - Removing noise (Blind and kernel knownµ)
+    - Histograms
+        - Intensity Distribution
+        - Equalization and Matching
+    - Transforms
+        - Fourier
+        - Log
+        - Wavelet
+
+    - Metrics
+        - PSNR (Peak Signal to Noise Ratio)
+    		      PSNR is the ratio between the maximum possible power of an image and the power of corrupting noise that affects the quality of its representation.
+                  PSNR is most commonly used to estimate the efficiency of compressors, filters, etc. 
+                  The larger the value of PSNR, the more efficient is a corresponding compression or filter method.
+
+                    mse = np.mean((original - compressed) ** 2) 
+                    if(mse == 0):  # MSE is zero means no noise is present in the signal . 
+                      # Therefore PSNR have no importance. 
+                        return 100
+                    max_pixel = 255.0
+                    psnr = 20 * log10(max_pixel / sqrt(mse)) 
+                    return psnr 
+
+                Peak Signal-to-Noise Ratio (PSNR) is a metric commonly used in image processing to evaluate the quality of an image. It compares the original image with a compressed or distorted version of it. 
+
+                Where to use :
+                Image Compression: When compressing images using algorithms like JPEG or MPEG, PSNR helps quantify the loss of quality introduced by compression. Higher PSNR values indicate less loss in image quality.
+
+                Image Denoising: In denoising applications, where the goal is to remove noise from an image while preserving important image features, PSNR can measure the effectiveness of denoising algorithms. A higher PSNR value suggests that the denoised image closely resembles the original noise-free image.
+
+                Image Restoration: PSNR is also used to evaluate algorithms aimed at restoring degraded images, such as removing blur or enhancing resolution. It helps assess how well the restored image matches the original.
+
+                Video Processing: PSNR is frequently employed in video processing to evaluate video compression techniques. It provides a quantitative measure of the distortion introduced during video compression, which is essential for maintaining video quality.
+
+                Quality Assessment: PSNR can be used as a general metric for quality assessment in various image processing tasks. It provides a numerical value that can be compared across different processing methods or parameters to determine which one yields the best results in terms of preserving image quality.
+
+	    - SSIM( Structural Similarity Index Measure)
+                Used metric in image processing for evaluating the similarity between two images. 
+                Unlike PSNR, which primarily measures pixel-wise differences, SSIM takes into account structural information and perceptual similarity between images. 
+                It's particularly useful in scenarios where human visual perception is critical. 
+
+                Image Quality Assessment: SSIM is used to assess the quality of an image by comparing it with a reference image or an original image. It considers factors such as luminance, contrast, and structure similarity, which are important for human perception of image quality. High SSIM values indicate greater similarity between the images.
+
+                Image Restoration: In tasks such as image denoising, deblurring, or super-resolution, SSIM can be used to evaluate the effectiveness of restoration algorithms. It helps ensure that the processed image not only reduces artifacts but also maintains the structural details and perceptual quality of the original image.
+
+                Image Compression: SSIM is also employed in image compression techniques to assess the quality of compressed images. It provides a more perceptually relevant measure compared to traditional metrics like PSNR, as SSIM considers the structural similarity between the compressed and original images.
+
+                Video Processing: Similar to image processing, SSIM is used in video processing applications to evaluate video compression algorithms or video enhancement techniques. It helps ensure that the processed video maintains high perceptual quality and preserves important structural information.
+
+                Medical Imaging: SSIM finds applications in medical imaging, where accurately preserving structural details in images is crucial for diagnosis and analysis. It helps evaluate the quality of medical images obtained from various imaging modalities and processing techniques.
+
+                The Structural Similarity Index (SSIM) is calculated using a formula that compares the structural information and luminance similarity between two images. The SSIM formula typically consists of three components: luminance comparison, contrast comparison, and structure comparison.
+
+
+	    - LPIPS( Learned Perceptual Image Patch Similarity).
+                LPIPS (Learned Perceptual Image Patch Similarity) is a metric used in image processing and computer vision to measure the perceptual similarity between two images. Unlike traditional metrics such as PSNR or SSIM, which rely on handcrafted features or assumptions about human perception, LPIPS is based on deep learning models trained to understand human perceptual similarity.
+
+                LPIPS computes the similarity between two images by comparing the representations of image patches extracted from deep neural networks, typically pretrained on large-scale image datasets. The metric considers both low-level features like color and texture, as well as high-level semantic features, making it more robust and aligned with human perception.
+
+                Image Quality Assessment: LPIPS is used to assess the perceptual quality of images, particularly in scenarios where traditional metrics like PSNR or SSIM may not accurately reflect human perception. It provides a more reliable measure of image quality, especially for images subjected to complex distortions or transformations.
+
+                Image Generation: In tasks such as image generation or image-to-image translation, where the goal is to produce visually pleasing results, LPIPS can be used as an objective function to optimize the similarity between generated images and target images. By minimizing the LPIPS score, models can produce outputs that are perceptually similar to the target images.
+
+                Image Retrieval: LPIPS can also be applied in image retrieval tasks, where the goal is to retrieve images similar to a given query image. By computing LPIPS distances between query and database images, retrieval systems can better capture perceptual similarity, leading to more relevant search results.
+
+                Image Restoration and Enhancement: In tasks such as image denoising, deblurring, or super-resolution, LPIPS can serve as a metric for evaluating the effectiveness of restoration or enhancement algorithms. It helps ensure that the processed images not only reduce artifacts but also preserve perceptual quality and naturalness
+
+1. Look at standard datasets and tasks and list (Like MNIST)
+    - Classification, Identification, Segmentation
+    - Image Denoising (Wiener Filters, MAP and Autoencoder)
+    - Image Enhancement (Intensity Transformations, Contract enhancement, histogram processing, spatial filtering)
+
+    - Image Restoration (Inverse Fileter, Wiener Filter, MAP Formulation, Wavelets)
+    - Face Detection (Eigen Faces, Viola Jones, CNN)
+    - Image Dehazing
+
+1. Preprocessing techniques
+
+1. Models
+    - Model Architectures (DenseNet, ResNet etc)
+    - Pretrained Models (Fine tuning)
+    - Evaluation Metrics
